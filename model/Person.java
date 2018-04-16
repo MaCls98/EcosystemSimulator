@@ -7,9 +7,9 @@ public class Person {
 	private boolean isAlive;
 	private int personAge;
 	private int ambientalAffectation;
-	private String gender;
+	private Gender gender;
 	
-	public Person(int idPerson, String personName, boolean isAlive, int personAge, String gender) {
+	public Person(int idPerson, String personName, boolean isAlive, int personAge, Gender gender) {
 		this.idPerson = idPerson;
 		this.personName = personName;
 		this.isAlive = isAlive;
@@ -17,12 +17,8 @@ public class Person {
 		this.gender = gender;
 	}
 
-	public void calculateAmbAffec(int ambientalImpact, int ambientalConservation){
-		if (ambientalImpact > ambientalConservation) {
-			ambientalAffectation = ambientalImpact - ambientalConservation;
-		}else if (ambientalConservation < ambientalImpact) {
-			ambientalAffectation = ambientalConservation - ambientalImpact;
-		}
+	public void calculateAmbAffec(int ambientalConservation, int ambientalImpact){
+		ambientalAffectation = ambientalConservation - ambientalImpact;
 	}
 
 	public int getIdPerson() {
@@ -45,7 +41,13 @@ public class Person {
 		return ambientalAffectation;
 	}
 
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
+	}
+	
+	@Override
+	public String toString() {
+		return "Person [idPerson=" + idPerson + ", personName=" + personName + ", isAlive=" + isAlive + ", personAge="
+				+ personAge + ", ambientalAffectation=" + ambientalAffectation + ", gender=" + gender + "]";
 	}
 }

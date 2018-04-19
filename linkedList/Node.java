@@ -1,30 +1,31 @@
 package linkedList;
 
-import model.Person;
-
 public class Node<T> {
 	
 	private Node<T> nextNode;
-	private Person person;
+	private T info;
 	
-	public Node(Person person) {
-		this.person = person;
+	public Node(T info) {
+		this.info = info;
 	}
+	
 	public Node<T> getNextNode() {
 		return nextNode;
 	}
 	public void setNextNode(Node<T> nextNode) {
 		this.nextNode = nextNode;
 	}
-	public Person getPerson() {
-		return person;
-	}
-	public void setPerson(Person person) {
-		this.person = person;
-	}
 	
+	public void setInfo(T info) {
+		this.info = info;
+	}
+
+	public T getInfo() {
+		return info;
+	}
+
 	@Override
 	public String toString() {
-		return "Node [nextNode=" + nextNode + ", person=" + person + "]";
+		return "Node [nextNode=" + nextNode + ", info=" + info + "]";
 	}
 }

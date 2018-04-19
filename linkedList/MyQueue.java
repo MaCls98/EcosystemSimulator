@@ -24,4 +24,8 @@ public class MyQueue<T> {
 		head = head.getNextNode();
 		return nodeDequeue;
 	}
+	
+	public Node<T> peek(){
+		return head;
+	}
 }

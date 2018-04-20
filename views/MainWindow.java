@@ -2,6 +2,7 @@ package views;
 
 import java.awt.BorderLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import controller.Controller;
@@ -18,6 +19,8 @@ public class MainWindow extends JFrame {
 		setLayout(new BorderLayout());
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
 		
 		dialogSetUp = new JDialogSetUp(controller);
 	}

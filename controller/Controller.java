@@ -10,6 +10,7 @@ public class Controller implements ActionListener{
 	
 	private Ecosystem ecosystem;
 	private MainWindow mainWindow;
+	private javax.swing.Timer timer;
 	
 	public Controller() {
 		mainWindow = new MainWindow(this);
@@ -30,13 +31,17 @@ public class Controller implements ActionListener{
 
 	private void runSimulation() {
 		ecosystem = new Ecosystem(mainWindow.getPerson(), mainWindow.getAnimal(), mainWindow.getVegetation(), mainWindow.getWater());
-		ecosystem.addPersonToQueue(mainWindow.getPerson());
-		ecosystem.addAnimalToQueue(mainWindow.getAnimal());
-		ecosystem.addPersonToStack(mainWindow.getPerson());
-		ecosystem.addAnimalToStack(mainWindow.getAnimal());
-		mainWindow.hideSetUp();
-		mainWindow.showBg(ecosystem);
-		mainWindow.setVisible(true);
+		timer = new javax.swing.Timer(1000, new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				ecosystem.calculateTotalDamage();
+				mainWindow.hideSetUp();
+				mainWindow.showBg(ecosystem);
+				mainWindow.setVisible(true);
+			}
+		});
+		timer.start();
 	}
 	
 	public static void main(String[] args) {

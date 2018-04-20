@@ -4,13 +4,6 @@ public class MyStack<T> {
 	
 	private Node<T> head;
 	
-	public Node<T> pop(){
-		Node<T> nodeToPop = head;
-		head = head.getNextNode();
-		nodeToPop.setNextNode(null);
-		return nodeToPop;
-	}
-	
 	public void push(Node<T> node){
 		if (head != null) {
 			node.setNextNode(head);
@@ -20,8 +13,11 @@ public class MyStack<T> {
 		}
 	}
 	
-	public Node<T> peek(){
-		return head;
+	public Node<T> pop(){
+		Node<T> nodeToPop = head;
+		head = head.getNextNode();
+		nodeToPop.setNextNode(null);
+		return nodeToPop;
 	}
 
 	public void print() {
@@ -30,5 +26,13 @@ public class MyStack<T> {
 			System.out.println(aux.getInfo() + "-");
 			aux = aux.getNextNode();
 		}
+	}
+	
+	public Node<T> peek(){
+		return head;
+	}
+
+	public T getHead() {
+		return head.getInfo();
 	}
 }

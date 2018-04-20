@@ -3,6 +3,7 @@ package views;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JSlider;
@@ -23,6 +24,7 @@ public class JDialogSetUp extends JDialog{
 		setTitle("SetUp");
 		setLayout(new GridLayout(5, 1, 5, 5));
 		setSize(500, 500);
+		setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
 		
 		jsPerson = new JSlider();
 		jsPerson.setMaximum(30);

@@ -23,4 +23,12 @@ public class MyStack<T> {
 	public Node<T> peek(){
 		return head;
 	}
+
+	public void print() {
+		Node<T> aux = head;
+		while (aux != null) {
+			System.out.println(aux.getInfo() + "-");
+			aux = aux.getNextNode();
+		}
+	}
 }

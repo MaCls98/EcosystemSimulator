@@ -22,7 +22,16 @@ public class MyQueue<T> {
 	public Node<T> dequeue(){
 		Node<T> nodeDequeue = head;
 		head = head.getNextNode();
+		nodeDequeue.setNextNode(null);
 		return nodeDequeue;
+	}
+	
+	public void print(){
+		Node<T> aux = head;
+		while (aux != null) {
+			System.out.println(aux.getInfo() + "-");
+			aux = aux.getNextNode();
+		}
 	}
 	
 	public Node<T> peek(){

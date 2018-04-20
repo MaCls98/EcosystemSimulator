@@ -26,9 +26,23 @@ public class MyLinkedList<T> {
 	public void print() {
 		Node<T> tmp = head;
 		while (tmp != null) {
-			System.out.println(tmp.getPerson() + " -> ");
+			System.out.println(tmp.getInfo() + " -> ");
 			tmp = tmp.getNextNode();
 		}
 		System.out.println("null");
+	}
+	
+	public int size() {
+		int size = 0;
+		Node<T> nodeActual = head;
+		while (nodeActual != null) {
+			size++;
+			nodeActual = nodeActual.getNextNode();
+		}
+		return size;
+	}
+
+	public Node<T> getHead() {
+		return head;
 	}
 }

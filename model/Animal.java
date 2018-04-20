@@ -9,12 +9,13 @@ public class Animal {
 	private int ambientalAffectation;
 	private AnimalType animalType;
 	
-	public Animal(int idAnimal, String animalName, boolean isAlive, int animalAge, AnimalType animalType) {
+	public Animal(int idAnimal, String animalName, boolean isAlive, int animalAge, int ambientalConservation, int ambientalImpact, AnimalType animalType) {
 		this.idAnimal = idAnimal;
 		this.animalName = animalName;
 		this.isAlive = isAlive;
 		this.animalAge = animalAge;
 		this.animalType = animalType;
+		calculateAmbAffec(ambientalConservation, ambientalImpact);
 	}
 	
 	public void calculateAmbAffec(int ambientalConservation, int ambientalImpact){

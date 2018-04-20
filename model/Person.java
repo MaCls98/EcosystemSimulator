@@ -9,12 +9,13 @@ public class Person {
 	private int ambientalAffectation;
 	private Gender gender;
 	
-	public Person(int idPerson, String personName, boolean isAlive, int personAge, Gender gender) {
+	public Person(int idPerson, String personName, boolean isAlive, int personAge, int ambientalConservation, int ambientalImpact, Gender gender) {
 		this.idPerson = idPerson;
 		this.personName = personName;
 		this.isAlive = isAlive;
 		this.personAge = personAge;
 		this.gender = gender;
+		calculateAmbAffec(ambientalConservation, ambientalImpact);
 	}
 
 	public void calculateAmbAffec(int ambientalConservation, int ambientalImpact){

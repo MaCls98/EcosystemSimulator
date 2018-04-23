@@ -1,7 +1,7 @@
 package model;
 
 public enum AnimalType {
-	MAMMALS(15), FISHES(20), BIRDS(40), REPTILES(10), AMPHIBIANS(10);
+	MAMMALS(60), FISHES(50), BIRDS(50), REPTILES(45), AMPHIBIANS(45);
 	
 	private int reparation;
 

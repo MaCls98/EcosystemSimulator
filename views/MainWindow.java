@@ -13,16 +13,24 @@ public class MainWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JDialogSetUp dialogSetUp;
 	private LandScreen landScreen;
+	private JTableReport tableReport;
 	
 	public MainWindow(Controller controller) {
 		setTitle("Ecosystem Simulator");
 		setLayout(new BorderLayout());
 		setExtendedState(MAXIMIZED_BOTH);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
 		setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
 		
 		dialogSetUp = new JDialogSetUp(controller);
+		tableReport = new JTableReport(controller);
+	}
+	
+	public void refreshTables(Ecosystem ecosystem){
+		tableReport.refreshAnimalTable(ecosystem);
+		tableReport.refreshPersonTable(ecosystem);
+		tableReport.showInfo(ecosystem);
+		tableReport.setVisible(true);
 	}
 	
 	public void showSetUp(){
@@ -53,5 +61,9 @@ public class MainWindow extends JFrame {
 	
 	public int getVegetation(){
 		return dialogSetUp.getVegetation();
+	}
+	
+	public void showMessage(){
+		landScreen.showMessage();
 	}
 }

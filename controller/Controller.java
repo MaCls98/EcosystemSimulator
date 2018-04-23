@@ -35,13 +35,29 @@ public class Controller implements ActionListener{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				ecosystem.calculateTotalDamage();
+				try {
+					ecosystem.calculateTotalDamage();
+				} catch (Exception e) {
+					ecosystem.refillPerson(mainWindow.getPerson());
+					ecosystem.refillAnimal(mainWindow.getAnimal());
+				}
+				ecosystem.checkEcoHabitable();
+				ecosystem.checkIsAlive();
+				stopSimulation();
+				mainWindow.setVisible(true);
 				mainWindow.hideSetUp();
 				mainWindow.showBg(ecosystem);
-				mainWindow.setVisible(true);
 			}
 		});
 		timer.start();
+	}
+	
+	private void stopSimulation(){
+		if (ecosystem.isHabitable() == false || ecosystem.isPerson() == false) {
+			mainWindow.showMessage();
+			timer.stop();
+			mainWindow.refreshTables(ecosystem);
+		}
 	}
 	
 	public static void main(String[] args) {

@@ -37,4 +37,8 @@ public class MyQueue<T> {
 	public T peek(){
 		return head.getInfo();
 	}
+
+	public Node<T> getHead() {
+		return head;
+	}
 }

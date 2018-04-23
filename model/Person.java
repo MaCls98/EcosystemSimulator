@@ -7,14 +7,18 @@ public class Person {
 	private boolean isAlive;
 	private int personAge;
 	private int ambientalAffectation;
+	private int x;
+	private int y;
 	private Gender gender;
 	
-	public Person(int idPerson, String personName, boolean isAlive, int personAge, int ambientalConservation, int ambientalImpact, Gender gender) {
+	public Person(int idPerson, String personName, boolean isAlive, int personAge, int ambientalConservation, int ambientalImpact, Gender gender, int x, int y) {
 		this.idPerson = idPerson;
 		this.personName = personName;
 		this.isAlive = isAlive;
 		this.personAge = personAge;
 		this.gender = gender;
+		this.x = x;
+		this.y = y;
 		calculateAmbAffec(ambientalConservation, ambientalImpact);
 	}
 
@@ -28,6 +32,10 @@ public class Person {
 
 	public String getPersonName() {
 		return personName;
+	}
+
+	public void setAlive(boolean isAlive) {
+		this.isAlive = isAlive;
 	}
 
 	public boolean isAlive() {
@@ -46,9 +54,21 @@ public class Person {
 		return gender;
 	}
 	
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
 	@Override
 	public String toString() {
 		return "Person [idPerson=" + idPerson + ", personName=" + personName + ", isAlive=" + isAlive + ", personAge="
 				+ personAge + ", ambientalAffectation=" + ambientalAffectation + ", gender=" + gender + "]";
+	}
+	
+	public Object[] toArrayPerson(){
+		return new Object[]{personName, personAge, isAlive, getAmbientalAffectation()};
 	}
 }

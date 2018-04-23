@@ -28,8 +28,8 @@ public class MyStack<T> {
 		}
 	}
 	
-	public Node<T> peek(){
-		return head;
+	public T peek(){
+		return head.getInfo();
 	}
 
 	public T getHead() {

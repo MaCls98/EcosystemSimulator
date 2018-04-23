@@ -23,6 +23,24 @@ public class MyLinkedList<T> {
 		}
 	}
 	
+	public Node<T> get(int index) {
+		if (index <= size()) {
+			if (index == 1) {
+				return head;
+			} else {
+				int count = 1;
+				Node<T> nodeActual = head;
+				while (count < index) {
+					nodeActual = nodeActual.getNextNode();
+					count++;
+				}
+				return nodeActual;
+			}
+		} else {
+			return null;
+		}
+	}
+	
 	public void print() {
 		Node<T> tmp = head;
 		while (tmp != null) {

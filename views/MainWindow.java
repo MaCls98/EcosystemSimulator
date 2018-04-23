@@ -66,4 +66,10 @@ public class MainWindow extends JFrame {
 	public void showMessage(){
 		landScreen.showMessage();
 	}
+	
+	public void removeAll(){
+		landScreen.removeAll();
+		tableReport.removeAll();
+		removeAll();
+	}
 }

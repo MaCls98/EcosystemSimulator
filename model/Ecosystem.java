@@ -77,7 +77,7 @@ public class Ecosystem {
 	}
 	
 	public int calculateVegetationDamage(){
-		int personDamage = (int) (calculatePersonDamage() * 0.1);
+		int personDamage = (int) (calculatePersonDamage() * 0.1) + 5;
 		int animalDamage = (int) (calculateAnimalDamage() * 0.1);
 		vegetationLevel = vegetationLevel - personDamage + animalDamage -5;
 		return vegetationLevel;

@@ -1,5 +1,5 @@
 package controller;
 
 public enum Events {
-	RUN_SIMULATION
+	RUN_SIMULATION, RESTART
 }

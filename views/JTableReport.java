@@ -7,6 +7,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -14,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import controller.Controller;
+import controller.Events;
 import linkedList.Node;
 import model.Animal;
 import model.Ecosystem;
@@ -27,18 +29,22 @@ public class JTableReport extends JDialog{
 	private DefaultTableModel defaultTableModelP;
 	private DefaultTableModel defaultTableModelA;
 	private JLabel lblPerson, lblAnimal, lblEcosystemType, lblVegetation, lblWater;
+	private JButton btnRestart;
 	private ImageIcon snow = new ImageIcon(getClass().getResource("/img/snow.png"));
 	private ImageIcon forest = new ImageIcon(getClass().getResource("/img/forest.png"));
 	private ImageIcon mountain = new ImageIcon(getClass().getResource("/img/mountain.png"));
-	GridBagConstraints c;
+	private GridBagConstraints c;
+	private Controller controller;
 	
 	public JTableReport(Controller controller) {
 		setTitle("Reporte del simulador");
-		setSize(800, 700);
+		setSize(800, 710);
 		setLayout(new GridBagLayout());
 		setIconImage(new ImageIcon(getClass().getResource("/img/icon.png")).getImage());
 		loadAnimalTable();
 		loadPersonTable();
+		
+		this.controller = controller;
 		
 		setBackground(Color.white);
 		
@@ -106,16 +112,28 @@ public class JTableReport extends JDialog{
 		c.gridy = 4;
 		c.gridx = 0;
 		c.gridwidth = 1;
-		c.weighty = 0.7;
+		c.weighty = 0.6;
 		JScrollPane paneP = new JScrollPane(tablePerson);
 		add(paneP, c);
 		
 		c.gridy = 4;
 		c.gridx = 1;
 		c.gridwidth = 1;
-		c.weighty = 0.7;
+		c.weighty = 0.6;
 		JScrollPane paneA = new JScrollPane(tableAnimal);
 		add(paneA, c);
+		
+		c.gridy = 5;
+		c.gridx = 0;
+		c.gridwidth = 2;
+		c.weighty = 0.1;
+		btnRestart = new JButton("Reiniciar el simulador");
+		btnRestart.addActionListener(controller);
+		btnRestart.setActionCommand(Events.RESTART.toString());
+		btnRestart.setFont(new Font("Arial", Font.CENTER_BASELINE, 20));
+		btnRestart.setBorder(null);
+		btnRestart.setBackground(Color.WHITE);
+		add(btnRestart, c);
 	}
 
 	public void validateEcosystem(Ecosystem ecosystem) {

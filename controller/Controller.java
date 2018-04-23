@@ -23,10 +23,19 @@ public class Controller implements ActionListener{
 		case RUN_SIMULATION:
 			runSimulation();
 			break;
+		case RESTART:
+			restartSimulation();
+			break;
 
 		default:
 			break;
 		}
+	}
+	
+	private void restartSimulation(){
+		mainWindow.setVisible(false);
+		new Controller();
+		runSimulation();
 	}
 
 	private void runSimulation() {
